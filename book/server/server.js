@@ -7,7 +7,7 @@ dotenv.config({
 
 const app = require("./app");
 
-console.log(process.env.DATABASE);
+console.log(process.env, "🔥🔥");
 
 const db = mongoose
   .connect(
