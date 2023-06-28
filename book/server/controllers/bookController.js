@@ -1,6 +1,7 @@
 const Book = require("../models/bookModel");
+const catchAsyncFn = require("../utils/catchAsyncFn");
 
-exports.getAllBooks = async (req, res, next) => {
+exports.getAllBooks = catchAsyncFn(async (req, res, next) => {
   // Return document by awaiting query
   const books = await Book.find();
 
@@ -11,9 +12,9 @@ exports.getAllBooks = async (req, res, next) => {
       books,
     },
   });
-};
+});
 
-exports.createBook = async (req, res, next) => {
+exports.createBook = catchAsyncFn(async (req, res, next) => {
   // Create new book
   const book = await Book.create(req.body);
 
@@ -23,4 +24,4 @@ exports.createBook = async (req, res, next) => {
       book,
     },
   });
-};
+});
