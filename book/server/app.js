@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const bookRouter = require("./routes/bookRoutes");
 const errorController = require("./controllers/errorController");
+const ApplicationError = require("./utils/applicationError");
 
 const app = express();
 
