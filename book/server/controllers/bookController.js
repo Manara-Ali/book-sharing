@@ -12,3 +12,15 @@ exports.getAllBooks = async (req, res, next) => {
     },
   });
 };
+
+exports.createBook = async (req, res, next) => {
+  // Create new book
+  const book = await Book.create(req.body);
+
+  res.status(201).json({
+    status: "success",
+    data: {
+      book,
+    },
+  });
+};
