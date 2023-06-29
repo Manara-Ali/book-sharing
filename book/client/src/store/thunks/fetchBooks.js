@@ -6,14 +6,12 @@ export const fetchBooks = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios({
-        // url: "/api/v1/books", // DEVELOPMENT
-        url: "https://books-jx67.onrender.com/api/v1/books", // LIVE SITE
+        url: "/api/v1/books", // DEVELOPMENT
+        // url: "https://books-jx67.onrender.com/api/v1/books", // LIVE SITE
         method: "GET",
       });
 
       const { data } = response.data;
-
-      console.log(data);
 
       return data;
     } catch (error) {
