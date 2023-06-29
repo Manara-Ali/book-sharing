@@ -1,10 +1,15 @@
 const express = require("express");
 const morgan = require("morgan");
+const cors = require("cors");
 const bookRouter = require("./routes/bookRoutes");
 const errorController = require("./controllers/errorController");
 const ApplicationError = require("./utils/applicationError");
 
 const app = express();
+
+app.use(cors({
+  origin: "*",
+}));
 
 // Add body parser
 app.use(
