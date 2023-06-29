@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 500px) {
   body {
-    border: 1px solid red;
+    border: 3px solid red;
     height: 100vh;
   }
   #main-container {
@@ -64,7 +64,28 @@
   }
 
   .header {
-    border: 1px solid green;
+    border: 3px solid yellow;
     grid-column: 1/-1;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+
+  .book-review-header {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    /* margin: 1.5rem 0 0.5rem; */
+  }
+
+  .book-review-header h1 {
+    font-size: 1.2rem;
+  }
+
+  .book-review-header .add-book-btn {
+    width: 10rem;
+    margin-left: auto;
+    background-color: #3d9363;
+    border-radius: 0.5rem;
+    padding: 0.7rem 0.1rem;
   }
 }
