@@ -9,7 +9,7 @@ const bookSlice = createSlice({
     reducers: {},
     extraReducers(builder) {
         builder.addCase(fetchBooks.fulfilled, (state, action) => {
-            state.data = action.payload;
+            state.data = action.payload.books;
         })
     }
 });
