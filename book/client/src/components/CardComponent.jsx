@@ -16,9 +16,6 @@ const CardComponent = ({
       <Card.Img
         variant="top"
         // src={`/img/books/${coverImage}`}
-        // width="200"
-        // height="200"
-        // style={{ objectFit: "cover", borderRadius: "20px" }}
       />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
