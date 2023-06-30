@@ -13,11 +13,10 @@
 @media screen and (max-width: 500px) {
   body {
     border: 3px solid red;
-    /* height: 100vh; */
     padding-bottom: 5rem;
   }
   #main-container {
-    border: 1px solid blue;
+    border: 3px solid blue;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     width: 90%;
@@ -110,5 +109,34 @@
     height: 20rem;
     object-fit: cover;
     border-radius: 2rem;
+  }
+  
+  .card-btn {
+    background-color: #3d9363;
+    border-radius: 0.7rem;
+  }
+
+  .back-btn {
+    width: 10rem;
+    background-color: #3d9363;
+    border-radius: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .detail-container {
+    grid-column: 1/-1;
+  }
+  
+  .cover-image {
+    border: 1px solid red;
+    margin-bottom: 1.5rem;
+  }
+
+  .book-detail {
+    height: 100vh;
+  }
+
+  .book-detail > h1 {
+    text-align: center;
   }
 }
