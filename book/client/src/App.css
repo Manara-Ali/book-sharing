@@ -148,4 +148,30 @@
     color: #3d9363;
     font-size: 1.3rem;
   }
+
+  .signup-form {
+    font-size: 1.2rem;
+    grid-column: 1/-1;
+    width: 100%;
+    margin: 5rem auto;
+    /* border: 1px solid #3d9363; */
+  }
+
+  .signup-form h1,
+  .signup-form p {
+    text-align: center;
+  }
+
+
+  .signup-form .form-control {
+    outline: 1px solid #3d9363;
+    border-radius: 0.2rem;
+  }
+
+  .signup-form .card-btn {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+
 }
