@@ -6,7 +6,8 @@ export const signupUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const response = await axios({
-        url: "/api/v1/users/signup",
+        // url: "/api/v1/users/signup",
+        url: "https://books-jx67.onrender.com/api/v1/users/signup", // LIVE SITE
         method: "POST",
         data: user,
       });

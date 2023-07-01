@@ -6,7 +6,8 @@ export const fetchBook = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await axios({
-        url: `/api/v1/books/${id}`,
+        // url: `/api/v1/books/${id}`,
+        url: `https://books-jx67.onrender.com/api/v1/books/${id}`, // LIVE SITE
         method: "GET",
       });
 
