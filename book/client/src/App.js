@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import BookDetail from "./pages/BookDetail";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/:id" element={<BookDetail />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </>
