@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
   signupUser,
+  loginUser,
+  logoutUser,
 } from "../index";
 
 const usersSlice = createSlice({
@@ -12,6 +14,14 @@ const usersSlice = createSlice({
   extraReducers(builder) {
     builder.addCase(signupUser.fulfilled, (state, action) => {
       state.user = action.payload.user;
+    });
+
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+        state.user = action.payload.user;
+    });
+
+    builder.addCase(logoutUser.fulfilled, (state, action) => {
+        state.user = action.payload;
     });
   },
 });
