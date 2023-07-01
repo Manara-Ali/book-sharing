@@ -13,13 +13,21 @@ const Signup = () => {
     return state.formCombinedReducer;
   });
 
+  const user = useSelector((state) => {
+    return state.usersCombinedReducer.user;
+  });
+
   // Create a function to handle form submission
   const handleFormSubmission = (e) => {
     e.preventDefault();
-    console.log({name, email, password, passwordConfirm})
     dispatch(signupUser({ name, email, password, passwordConfirm }));
   };
 
+  useEffect(() => {
+    if (Object.keys(user) && Object.keys(user).length) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   return (
     <>
