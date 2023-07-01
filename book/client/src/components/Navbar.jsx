@@ -1,5 +1,7 @@
 import React, { useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import { logoutUser } from "../store";
 
 const Navbar = () => {
   const homeEl = useRef();
@@ -9,9 +11,19 @@ const Navbar = () => {
   const userNameEl = useRef();
   const location = useLocation();
 
-  //   const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const user = useSelector((state) => {
+    return state.usersCombinedReducer.user;
+  });
+
+  console.log(user);
+
+  const handleUserLogout = async () => {
+    await dispatch(logoutUser());
+    navigate("/");
+  };
 
   useEffect(() => {
     const checkLocation = () => {
@@ -48,12 +60,38 @@ const Navbar = () => {
         <li ref={favoritesEl}>
           <Link to="/favorites">Favorites</Link>
         </li>
-        <li ref={loginEl}>
-          <Link to="/login">Login</Link>
-        </li>
-        <li ref={signupEl}>
-          <Link to="/signup">Sign up</Link>
-        </li>
+        {Object.keys(user) && Object.keys(user).length ? (
+          <>
+            <li>
+              <Link
+                onClick={() => {
+                  return handleUserLogout();
+                }}
+              >
+                Logout
+              </Link>
+            </li>
+            <Link to="/my-account">
+              <img
+                src={`/img/users/${user.photo}`}
+                alt={user.name}
+                className="profile-img"
+              />
+            </Link>
+            <li ref={userNameEl}>
+              <Link to="/my-account">{user.name?.split(" ")[0]}</Link>
+            </li>
+          </>
+        ) : (
+          <>
+            <li ref={loginEl}>
+              <Link to="/login">Login</Link>
+            </li>
+            <li ref={signupEl}>
+              <Link to="/signup">Sign up</Link>
+            </li>
+          </>
+        )}
       </ul>
     </div>
   );
