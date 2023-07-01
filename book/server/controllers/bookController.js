@@ -25,3 +25,27 @@ exports.createBook = catchAsyncFn(async (req, res, next) => {
     },
   });
 });
+
+
+exports.getBook = catchAsyncFn(async (req, res, next) => {
+  const book = await Book.findById(req.params.id);
+
+  if (!book) {
+    // Create an instance of an application error
+    const applicationError = new ApplicationError(
+      `Invalid ID: ${req.params.id} is not a valid ID. Try again.`,
+      404
+    );
+
+    next(applicationError);
+
+    return;
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      book,
+    },
+  });
+});
