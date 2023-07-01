@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signupUser } from "..";
+import { signupUser, loginUser } from "..";
 
 const formSlice = createSlice({
     name: "form",
@@ -33,6 +33,11 @@ const formSlice = createSlice({
             state.password = "";
             state.passwordConfirm = "";
         })
+
+        builder.addCase(loginUser.fulfilled, (state, action) => {
+            state.email = "";
+            state.password = "";
+        });
     }
 });
 
