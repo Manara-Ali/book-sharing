@@ -3,7 +3,16 @@ const bookController = require("../controllers/bookController");
 
 const router = express.Router();
 
-router.route("/").get(bookController.getAllBooks);
+router.use(authController.isLoggedIn);
+
+router.route("/")
+  .get(bookController.getAllBooks)
+  .post(
+    authController.protect,
+    authController.restrictTo("user", "admin", "moderator"),
+    bookController.createBook,
+  );
+
 
 router
   .route("/:id")
