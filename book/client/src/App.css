@@ -149,7 +149,7 @@
     font-size: 1.3rem;
   }
 
-  .signup-form, .login-form {
+  .signup-form, .login-form, .add-book-form {
     font-size: 1.5rem;
     grid-column: 1/-1;
     width: 100%;
@@ -160,19 +160,23 @@
   .signup-form h1,
   .signup-form p,
   .login-form h1,
-  .login-form p {
+  .login-form p,
+  .add-book-form h1,
+  .add-book-form p {
     text-align: center;
   }
 
 
   .signup-form .form-control,
-  .login-form .form-control {
+  .login-form .form-control,
+  .add-book-form .form-control {
     outline: 1px solid #3d9363;
     border-radius: 0.2rem;
   }
 
   .signup-form .card-btn,
-  .login-form .card-btn {
+  .login-form .card-btn,
+  .add-book-form .card-btn {
     width: 100%;
     margin-top: 2rem;
     margin-bottom: 0;

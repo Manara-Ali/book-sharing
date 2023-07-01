@@ -8,6 +8,7 @@ import Favorites from "./pages/Favorites";
 import BookDetail from "./pages/BookDetail";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import CreateBook from "./pages/CreateBook";
 
 const App = () => {
   return (
@@ -17,9 +18,10 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/:id" element={<BookDetail />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/:id" element={<BookDetail />} />
+          <Route path="/book-create-summary" element={<CreateBook />} />
         </Routes>
       </div>
     </>
