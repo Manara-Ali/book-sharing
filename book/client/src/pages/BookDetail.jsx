@@ -52,8 +52,8 @@ const BookDetail = () => {
             <p>Title:{title}</p>
             <p>Genre:{genre}</p>
             <p>Author:{author}</p>
-            <p>Pages:{numberOfPages}</p>
-            <p>Chapters:{numberOfChapters}</p>
+            <p>Pages:{numberOfPages} pages</p>
+            <p>Chapters:{numberOfChapters} chapters</p>
             <p>
               Ratings:{ratingsAverage} ({ratingsQuantity})
             </p>
@@ -73,7 +73,7 @@ const BookDetail = () => {
                 : "Loading..."}
             </p>
             <div className="image-list-container">
-              User's Images
+              <p>User's Images</p>
             </div>
           </div>
         </div>

@@ -139,4 +139,13 @@
   .book-detail > h1 {
     text-align: center;
   }
+
+  .book-detail p {
+    font-size: 1rem;
+  }
+
+  .book-detail p::first-letter {
+    color: #3d9363;
+    font-size: 1.3rem;
+  }
 }
