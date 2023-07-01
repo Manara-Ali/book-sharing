@@ -2,16 +2,32 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import { enteredName, enteredEmail, enteredPassword, enteredPasswordConfirm, signupUser } from "../store";
 
 const Signup = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
+  const { name, email, password, passwordConfirm } = useSelector((state) => {
+    return state.formCombinedReducer;
+  });
+
+  // Create a function to handle form submission
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    console.log({name, email, password, passwordConfirm})
+    dispatch(signupUser({ name, email, password, passwordConfirm }));
+  };
+
+
   return (
     <>
       <Form
         className="signup-form"
+        onSubmit={(e) => {
+            return handleFormSubmission(e);
+        }}
       >
         <h1>Sign Up</h1>
         <p>Knowledge is free and now it has a community!</p>
@@ -20,6 +36,10 @@ const Signup = () => {
           <Form.Control
             type="name"
             placeholder="Enter name"
+            value={name}
+            onChange={(e) => {
+              return dispatch(enteredName(e.target.value));
+            }}
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
@@ -29,6 +49,10 @@ const Signup = () => {
           <Form.Control
             type="email"
             placeholder="Enter email"
+            value={email}
+            onChange={(e) => {
+              return dispatch(enteredEmail(e.target.value));
+            }}
           />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
@@ -41,6 +65,10 @@ const Signup = () => {
             type="password"
             placeholder="Password"
             className="input-box"
+            value={password}
+            onChange={(e) => {
+              return dispatch(enteredPassword(e.target.value));
+            }}
           />
         </Form.Group>
 
@@ -50,6 +78,10 @@ const Signup = () => {
             type="password"
             placeholder="Confirm Password"
             className="input-box"
+            value={passwordConfirm}
+            onChange={(e) => {
+              return dispatch(enteredPasswordConfirm(e.target.value));
+            }}
           />
         </Form.Group>
 
