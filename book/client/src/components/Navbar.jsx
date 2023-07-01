@@ -48,6 +48,9 @@ const Navbar = () => {
         <li ref={favoritesEl}>
           <Link to="/favorites">Favorites</Link>
         </li>
+        <li ref={signupEl}>
+              <Link to="/signup">Sign up</Link>
+            </li>
       </ul>
     </div>
   );
