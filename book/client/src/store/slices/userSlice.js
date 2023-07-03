@@ -3,6 +3,8 @@ import {
   signupUser,
   loginUser,
   logoutUser,
+  fetchBooks,
+  fetchBook,
 } from "../index";
 
 const usersSlice = createSlice({
@@ -22,6 +24,14 @@ const usersSlice = createSlice({
 
     builder.addCase(logoutUser.fulfilled, (state, action) => {
         state.user = action.payload;
+    });
+
+    builder.addCase(fetchBooks.fulfilled, (state, action) => {
+        state.user = action.payload.loggedInUser;
+      });
+  
+    builder.addCase(fetchBook.fulfilled, (state, action) => {
+    state.user = action.payload.loggedInUser;
     });
   },
 });
