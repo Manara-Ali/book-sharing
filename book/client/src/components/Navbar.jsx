@@ -42,7 +42,7 @@ const Navbar = () => {
     };
 
     checkLocation();
-  }, [location.pathname]);
+  }, [location.pathname, user.name]);
 
   return (
     <div id="nav">
