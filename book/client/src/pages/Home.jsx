@@ -21,7 +21,7 @@ const Home = () => {
     return (
       <CardComponent
         key={element._id}
-        // coverImage={element.coverImage}
+        coverImage={element.coverImage}
         title={element.title}
         synopsis={element.synopsis}
         ratingsAverage={element.ratingsAverage}
