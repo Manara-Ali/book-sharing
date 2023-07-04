@@ -20,6 +20,10 @@ const CreateBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { status } = useSelector((state) => {
+    return state.booksCombinedReducer;
+  });
+
   const {
     title,
     genre,
@@ -76,10 +80,52 @@ const CreateBook = () => {
     return dispatch(enteredRecommendation(value));
   };
 
+  const handleFormSubmission = (e, obj) => {
+    e.preventDefault();
+    // const form = new FormData();
+    // for (let [key, value] of Object.entries(obj)) {
+    //   form.append(key, value);
+    // }
+
+    // form.append("coverImage", document.querySelector("#cover-image").files[0]);
+    // form.append("images", document.querySelector("#images-1").files[0]);
+    // form.append("images", document.querySelector("#images-2").files[0]);
+    // form.append("images", document.querySelector("#images-3").files[0]);
+    // document.querySelector("#cover-image").value = "";
+    // document.querySelector("#images-1").value = "";
+    // document.querySelector("#images-2").value = "";
+    // document.querySelector("#images-3").value = "";
+    // dispatch(createBook(form));
+    dispatch(createBook(obj));
+    console.log("Herer");
+  };
+
+  console.log(status);
+
+  useEffect(() => {
+    if (status === "success") {
+      navigate("/");
+    }
+  }, [status, navigate]);
+
   return (
     <>
       <Form
         className="add-book-form"
+        onSubmit={(e) => {
+            return handleFormSubmission(e, {
+              title,
+              genre,
+              author,
+              numberOfPages,
+              numberOfChapters,
+              synopsis,
+              myExplanation,
+              finalThoughts,
+              ratingsAverage,
+              recommend,
+            });
+        }}
       >
         <h1>Add Book</h1>
         {/* <p>Use this form to share a book</p> */}
