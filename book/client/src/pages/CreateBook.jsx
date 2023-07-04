@@ -82,20 +82,20 @@ const CreateBook = () => {
 
   const handleFormSubmission = (e, obj) => {
     e.preventDefault();
-    // const form = new FormData();
-    // for (let [key, value] of Object.entries(obj)) {
-    //   form.append(key, value);
-    // }
+    const form = new FormData();
+    for (let [key, value] of Object.entries(obj)) {
+      form.append(key, value);
+    }
 
-    // form.append("coverImage", document.querySelector("#cover-image").files[0]);
-    // form.append("images", document.querySelector("#images-1").files[0]);
-    // form.append("images", document.querySelector("#images-2").files[0]);
-    // form.append("images", document.querySelector("#images-3").files[0]);
-    // document.querySelector("#cover-image").value = "";
-    // document.querySelector("#images-1").value = "";
-    // document.querySelector("#images-2").value = "";
-    // document.querySelector("#images-3").value = "";
-    // dispatch(createBook(form));
+    form.append("coverImage", document.querySelector("#cover-image").files[0]);
+    form.append("images", document.querySelector("#images-1").files[0]);
+    form.append("images", document.querySelector("#images-2").files[0]);
+    form.append("images", document.querySelector("#images-3").files[0]);
+    document.querySelector("#cover-image").value = "";
+    document.querySelector("#images-1").value = "";
+    document.querySelector("#images-2").value = "";
+    document.querySelector("#images-3").value = "";
+    dispatch(createBook(form));
     dispatch(createBook(obj));
     console.log("Herer");
   };
