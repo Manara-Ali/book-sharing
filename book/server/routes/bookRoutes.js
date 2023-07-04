@@ -1,11 +1,13 @@
 const express = require("express");
 const bookController = require("../controllers/bookController");
+const authController = require("../controllers/authController");
 
 const router = express.Router();
 
 router.use(authController.isLoggedIn);
 
-router.route("/")
+router
+  .route("/")
   .get(bookController.getAllBooks)
   .post(
     authController.protect,
