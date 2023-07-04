@@ -10,6 +10,7 @@ exports.getAllBooks = catchAsyncFn(async (req, res, next) => {
     results: books.length,
     data: {
       books,
+      loggedInUser: res.loggedInUser,
     },
   });
 });
@@ -22,6 +23,7 @@ exports.createBook = catchAsyncFn(async (req, res, next) => {
     status: "success",
     data: {
       book,
+      loggedInUser: res.loggedInUser,
     },
   });
 });
@@ -46,6 +48,7 @@ exports.getBook = catchAsyncFn(async (req, res, next) => {
     status: "success",
     data: {
       book,
+      loggedInUser: res.loggedInUser,
     },
   });
 });
