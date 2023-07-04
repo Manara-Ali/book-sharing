@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { TiFlash } from "react-icons/ti";
 
 const CardComponent = ({
-//   coverImage,
+  coverImage,
   title,
   synopsis,
   ratingsAverage,
@@ -15,7 +15,7 @@ const CardComponent = ({
     <Card style={{ borderRadius: "20px" }} className="single-card">
       <Card.Img
         variant="top"
-        // src={`/img/books/${coverImage}`}
+        src={`/img/books/${coverImage}`}
       />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
