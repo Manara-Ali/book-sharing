@@ -1,3 +1,4 @@
+const util = require("util");
 const User = require("../models/userModel");
 const catchAsyncFn = require("../utils/catchAsyncFn");
 const ApplicationError = require("../utils/applicationError");
@@ -86,7 +87,7 @@ exports.isLoggedIn = catchAsyncFn(async (req, res, next) => {
   
       res.loggedInUser = currentUser;
   
-      // console.log("HERE", res.loggedInUser);
+    //   console.log("HERE", res.loggedInUser);
   
       next();
   
