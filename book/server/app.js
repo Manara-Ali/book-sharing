@@ -1,12 +1,17 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const bookRouter = require("./routes/bookRoutes");
 const userRouter = require("./routes/userRoutes");
 const errorController = require("./controllers/errorController");
 const ApplicationError = require("./utils/applicationError");
 
 const app = express();
+
+if (process.env.NODE_ENV === "development") {
+  app.use(morgan("dev"));
+}
 
 app.use(cors({
   origin: "*",
@@ -19,9 +24,7 @@ app.use(
   })
 );
 
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-}
+app.use(cookieParser());
 
 app.use("/api/v1/books", bookRouter);
 app.use("/api/v1/users", userRouter);
