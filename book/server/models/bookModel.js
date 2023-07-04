@@ -3,11 +3,11 @@ const slugify = require("slugify");
 
 const bookSchema = new mongoose.Schema(
   {
-    // userId: {
-    //   type: mongoose.SchemaTypes.ObjectId,
-    //   required: [true, "Each book must be created by a given user"],
-    //   ref: "User",
-    // },
+    userId: {
+      type: mongoose.SchemaTypes.ObjectId,
+      required: [true, "Each book must be created by a given user"],
+      ref: "User",
+    },
     title: {
       type: String,
       trim: true,
