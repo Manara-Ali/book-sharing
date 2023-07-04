@@ -44,7 +44,7 @@ const BookDetail = () => {
         <div className="detail-container">
           <img
             className="cover-image"
-            // src={`/img/books/${coverImage}`}
+            src={`/img/books/${coverImage}`}
             alt="book cover"
           />
           <div className="book-detail">
@@ -72,10 +72,20 @@ const BookDetail = () => {
                   }).format(date)
                 : "Loading..."}
             </p>
-            <div className="image-list-container">
-              <p>User's Images</p>
-            </div>
+              <p>User's Additional Images:</p>
           </div>
+            <div className="image-list-container">
+              {images?.map((element) => {
+                return (
+                  <img
+                    className="image-list"
+                    key={element}
+                    src={`/img/books/${element}`}
+                    alt="book cover"
+                  />
+                );
+              })}
+            </div>
         </div>
       
     </>
