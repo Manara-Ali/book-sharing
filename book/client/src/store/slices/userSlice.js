@@ -11,6 +11,7 @@ const usersSlice = createSlice({
   name: "users",
   initialState: {
     user: {},
+    status: "",
   },
   reducers: {},
   extraReducers(builder) {
@@ -19,7 +20,8 @@ const usersSlice = createSlice({
     });
 
     builder.addCase(loginUser.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user = action.payload.data;
+        state.status = action.payload.status
     });
 
     builder.addCase(logoutUser.fulfilled, (state, action) => {
