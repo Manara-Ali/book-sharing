@@ -10,6 +10,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state) => {
+    console.log(state);
     return state.booksCombinedReducer.data;
   });
 
