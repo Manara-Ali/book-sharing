@@ -12,8 +12,8 @@ const Login = () => {
     return state.formCombinedReducer;
   });
 
-  const user = useSelector((state) => {
-    return state.usersCombinedReducer.user;
+  const {user, status} = useSelector((state) => {
+    return state.usersCombinedReducer;
   });
 
   const handleEmail = (e) => {
@@ -30,10 +30,13 @@ const Login = () => {
   };
 
   useEffect(() => {
-    if (Object.keys(user) && Object.keys(user).length) {
+    // if (Object.keys(user) && Object.keys(user).length) {
+    //   navigate("/");
+    // }
+    if(status === 'success') {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [status, navigate]);
 
   return (
     <>
