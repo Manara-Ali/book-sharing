@@ -9,6 +9,7 @@ export const fetchBook = createAsyncThunk(
         // url: `/api/v1/books/${id}`,
         url: `https://books-jx67.onrender.com/api/v1/books/${id}`, // LIVE SITE
         method: "GET",
+        withCredentials: true,
       });
 
       const { data } = response.data;

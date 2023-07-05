@@ -6,6 +6,7 @@ export const logoutUser = createAsyncThunk("user/logout", async () => {
     // url: "/api/v1/users/logout",
     url: "https://books-jx67.onrender.com/api/v1/users/logout", // LIVE SITE
     method: "GET",
+    withCredentials: true,
   });
 
   // console.log(response);

@@ -10,6 +10,7 @@ export const createBook = createAsyncThunk(
         url: `https://books-jx67.onrender.com/api/v1/books`, // LIVE SITE
         method: "POST",
         data: book,
+        withCredentials: true,
       });
 
       const data = response.data;
