@@ -1,9 +1,9 @@
 [[redirects]]
-from = "/*"
-to = "/index.html"
+from = "/img/*"
+to = "book/client/public/img/*"
 status = 200
 
 [[redirects]]
-from = "/img/*"
-to = "book/client/public/img/*"
+from = "/*"
+to = "/index.html"
 status = 200
