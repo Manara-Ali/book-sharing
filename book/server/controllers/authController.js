@@ -60,6 +60,7 @@ exports.logout = (req, res, next) => {
 
 // Create a middleware to determine if the user is loggedin
 exports.isLoggedIn = catchAsyncFn(async (req, res, next) => {
+    console.log(req.cookies);
     if (req.cookies.jwt) {
       console.log("REQUEST.COOKIES.JWT");
       const decodedPayload = await util.promisify(jwt.verify)(
