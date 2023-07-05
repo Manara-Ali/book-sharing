@@ -4,6 +4,6 @@ to = "/index.html"
 status = 200
 
 [[redirects]]
-from = "/img/"
-to = "book/client/public/img/"
+from = "/img/*"
+to = "book/client/public/img/*"
 status = 200
