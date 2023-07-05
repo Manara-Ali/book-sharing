@@ -61,6 +61,7 @@ exports.logout = (req, res, next) => {
 // Create a middleware to determine if the user is loggedin
 exports.isLoggedIn = catchAsyncFn(async (req, res, next) => {
     if (req.cookies.jwt) {
+      console.log("REQUEST.COOKIES.JWT");
       const decodedPayload = await util.promisify(jwt.verify)(
         req.cookies.jwt,
         process.env.JWT_SECRET_KEY
@@ -87,7 +88,7 @@ exports.isLoggedIn = catchAsyncFn(async (req, res, next) => {
   
       res.loggedInUser = currentUser;
   
-    //   console.log("HERE", res.loggedInUser);
+      console.log("HERE", res.loggedInUser);
   
       next();
   
@@ -97,7 +98,7 @@ exports.isLoggedIn = catchAsyncFn(async (req, res, next) => {
     // res.loggedInUser = null;
     res.loggedInUser = {};
   
-    // console.log("THERE", res.loggedInUser);
+    console.log("THERE", res.loggedInUser);
   
     next();
 });
