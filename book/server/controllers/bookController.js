@@ -52,6 +52,20 @@ exports.processBookImages = catchAsyncFn(async (req, res, next) => {
   // 1. Process Cover image
   const coverImageFilename = `books-${req.user.id}-${Date.now()}-cover.jpeg`;
 
+  // await sharp(req.files.coverImage[0].buffer)
+  //   .resize(2000, 1333)
+  //   .toFormat("jpeg")
+  //   .jpeg({
+  //     quality: 90,
+  //   })
+  //   .withMetadata()
+  //   .toFile(
+  //     path.join(
+  //       `${__dirname}/../../client`,
+  //       `public/img/books/${coverImageFilename}`
+  //     )
+  //   );
+
   await sharp(req.files.coverImage[0].buffer)
     .resize(2000, 1333)
     .toFormat("jpeg")
@@ -62,7 +76,7 @@ exports.processBookImages = catchAsyncFn(async (req, res, next) => {
     .toFile(
       path.join(
         `${__dirname}/../../client`,
-        `public/img/books/${coverImageFilename}`
+        `img/books/${coverImageFilename}`
       )
     );
 
@@ -74,6 +88,17 @@ exports.processBookImages = catchAsyncFn(async (req, res, next) => {
   const promiseArr = req.files.images.map(async (element, index) => {
     const filename = `books-${req.user.id}-${Date.now()}-${index + 1}.jpeg`;
 
+    // await sharp(element.buffer)
+    //   .resize(2000, 1333)
+    //   .toFormat("jpeg")
+    //   .jpeg({
+    //     quality: 90,
+    //   })
+    //   .withMetadata()
+    //   .toFile(
+    //     path.join(`${__dirname}/../../client`, `public/img/books/${filename}`)
+    //   );
+
     await sharp(element.buffer)
       .resize(2000, 1333)
       .toFormat("jpeg")
@@ -82,7 +107,7 @@ exports.processBookImages = catchAsyncFn(async (req, res, next) => {
       })
       .withMetadata()
       .toFile(
-        path.join(`${__dirname}/../../client`, `public/img/books/${filename}`)
+        path.join(`${__dirname}/../../client`, `img/books/${filename}`)
       );
 
     return req.body.images.push(filename);
