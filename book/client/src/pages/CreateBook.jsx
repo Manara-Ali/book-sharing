@@ -96,7 +96,6 @@ const CreateBook = () => {
     document.querySelector("#images-2").value = "";
     document.querySelector("#images-3").value = "";
     dispatch(createBook(form));
-    dispatch(createBook(obj));
     console.log("Herer");
   };
 
