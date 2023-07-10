@@ -6,8 +6,8 @@ export const createBook = createAsyncThunk(
   async (book, { rejectWithValue }) => {
     try {
       const response = await axios({
-        // url: "/api/v1/books", // Development
-        url: `https://books-jx67.onrender.com/api/v1/books`, // LIVE SITE
+        url: "/api/v1/books", // Development
+        // url: `https://books-jx67.onrender.com/api/v1/books`, // LIVE SITE
         method: "POST",
         data: book,
         withCredentials: true,
