@@ -18,7 +18,7 @@ const Navbar = () => {
     return state.usersCombinedReducer.user;
   });
 
-  console.log(user);
+  // console.log(user);
 
   const handleUserLogout = async () => {
     await dispatch(logoutUser());
